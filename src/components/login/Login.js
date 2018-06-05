@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { postAuth } from '../../actions/api_actions';
 
 class Login extends Component {
   constructor(props) {
     super(props);
-    this.state = { login: '', password: '' };
+    this.state = {};
 
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -22,10 +24,11 @@ class Login extends Component {
 
   handleSubmit(event) {
     console.log(
-      'A form was submitted: ' + this.state.login,
+      'A form was submitted: ' + this.state.username,
       '/',
       this.state.password
     );
+    this.props.postAuth(this.state);
     event.preventDefault();
   }
 
@@ -40,7 +43,11 @@ class Login extends Component {
   }
 }
 
-export default Login;
+function mapStateToProps(state) {
+  return {};
+}
+
+export default connect(mapStateToProps, { postAuth })(Login);
 
 const LoginLayout = ({ handleSubmit, state, handleInputChange }) => {
   return (
@@ -49,7 +56,7 @@ const LoginLayout = ({ handleSubmit, state, handleInputChange }) => {
         Login:
         <input
           type="text"
-          name="login"
+          name="username"
           value={state.login}
           onChange={handleInputChange}
         />
