@@ -7,8 +7,11 @@ import { Provider } from 'react-redux';
 import promise from 'redux-promise';
 import reducers from './reducers';
 import registerServiceWorker from './registerServiceWorker';
+import authorizationMDL from './middleware/authorization';
 
-const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
+const createStoreWithMiddleware = applyMiddleware(promise, ...authorizationMDL)(
+  createStore
+);
 
 ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
