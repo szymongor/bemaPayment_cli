@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { postAuth } from '../../actions/api_actions';
+import LoginLayout from './login_layout';
 
 class Login extends Component {
   constructor(props) {
@@ -51,29 +52,3 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps, { postAuth })(Login);
-
-const LoginLayout = ({ handleSubmit, state, handleInputChange }) => {
-  return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Login:
-        <input
-          type="text"
-          name="username"
-          value={state.login}
-          onChange={handleInputChange}
-        />
-      </label>
-      <label>
-        Password:
-        <input
-          type="password"
-          name="password"
-          value={state.password}
-          onChange={handleInputChange}
-        />
-      </label>
-      <input type="submit" value="Submit" />
-    </form>
-  );
-};
