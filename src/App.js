@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Login from './components/login/Login';
 import Navigation from './components/navigation/Navigation';
+import BillsTable from './components/bills/bills_table';
 import './App.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
@@ -11,6 +12,7 @@ class App extends Component {
         <Switch>
           <Route path="/" component={Login} exact />
           <Route path="/main" component={Navigation} />
+          <Route path="/bills" component={BillsTable} />
         </Switch>
       </BrowserRouter>
     );
