@@ -9,6 +9,15 @@ import {
   Col
 } from "react-bootstrap";
 
+function FieldGroup({ id, label, ...props }) {
+  return (
+    <FormGroup controlId={id}>
+      <ControlLabel>{label}</ControlLabel>
+      <FormControl {...props} />
+    </FormGroup>
+  );
+}
+
 const LoginLayout = ({ handleSubmit, state, handleInputChange }) => {
   return (
     <Grid>
@@ -24,24 +33,22 @@ const LoginLayout = ({ handleSubmit, state, handleInputChange }) => {
           lgOffset={4}
         >
           <form onSubmit={handleSubmit}>
-            <FormGroup controlId="loginGroup">
-              <ControlLabel>Username</ControlLabel>
-              <FormControl
-                type="text"
-                name="username"
-                value={state.login}
-                onChange={handleInputChange}
-              />
-            </FormGroup>
-            <FormGroup controlId="passwordGroup">
-              <ControlLabel>Password</ControlLabel>
-              <FormControl
-                type="password"
-                name="password"
-                value={state.password}
-                onChange={handleInputChange}
-              />
-            </FormGroup>
+            <FieldGroup
+              id="loginGroup"
+              label="Username"
+              type="text"
+              name="username"
+              value={state.login}
+              onChange={handleInputChange}
+            />
+            <FieldGroup
+              id="passwordGroup"
+              label="Password"
+              type="password"
+              name="password"
+              value={state.password}
+              onChange={handleInputChange}
+            />
             <Button type="submit">Default</Button>
           </form>
         </Col>
