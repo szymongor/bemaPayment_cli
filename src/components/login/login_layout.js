@@ -1,4 +1,5 @@
 import React from "react";
+import "./login_layout.css";
 import {
   Button,
   FormGroup,
@@ -20,17 +21,18 @@ function FieldGroup({ id, label, ...props }) {
 
 const LoginLayout = ({ handleSubmit, state, handleInputChange }) => {
   return (
-    <Grid>
+    <Grid className="login-form">
       <Row>
         <Col
-          xs={6}
-          sm={6}
+          xs={10}
+          sm={8}
           md={6}
           lg={4}
-          xsOffset={3}
-          smOffset={3}
+          xsOffset={1}
+          smOffset={2}
           mdOffset={3}
           lgOffset={4}
+          className="border-layout"
         >
           <form onSubmit={handleSubmit}>
             <FieldGroup
@@ -49,7 +51,9 @@ const LoginLayout = ({ handleSubmit, state, handleInputChange }) => {
               value={state.password}
               onChange={handleInputChange}
             />
-            <Button type="submit">Default</Button>
+            <Button bsStyle="primary" type="submit" className="pull-right">
+              Login
+            </Button>
           </form>
         </Col>
       </Row>
