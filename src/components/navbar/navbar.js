@@ -1,12 +1,7 @@
 import React from "react";
 import { Navbar, Nav, NavItem } from "react-bootstrap";
-import { LinkContainer } from "react-router-bootstrap";
 
-const NavLinkItem = ({ path, name }) => (
-  <LinkContainer to={path}>
-    <NavItem>{name}</NavItem>
-  </LinkContainer>
-);
+const NavLinkItem = ({ path, name }) => <NavItem href={path}>{name}</NavItem>;
 
 const NavbarHeader = ({ path, name }) => (
   <Navbar.Header>
@@ -19,7 +14,7 @@ const NavbarHeader = ({ path, name }) => (
 
 const NavbarLayout = () => {
   return (
-    <Navbar>
+    <Navbar inverse>
       <NavbarHeader path="/main" name="E-Payment" />
       <Navbar.Collapse>
         <Nav>
