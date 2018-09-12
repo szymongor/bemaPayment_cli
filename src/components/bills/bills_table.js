@@ -4,8 +4,8 @@ import { ListGroup, ListGroupItem } from 'react-bootstrap';
 import BillElement from './bill_table_element';
 
 const BillsTable = ({}) => {
-  const billsElements = billsData.map(({ id, type, title }) => (
-    <BillElement key={id} type={type} title={title} />
+  const billsElements = billsData.map(({ id, founder, title, type, amount, status }) => (
+    <BillElement id={id} founder={founder} title={title} type={type} amount={amount} status={status}/>
   ));
   return <ListGroup>{billsElements}</ListGroup>;
 };
