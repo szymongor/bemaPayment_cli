@@ -2,25 +2,31 @@ import React from "react";
 import { Navbar, Nav, NavItem } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 
+const NavLinkItem = ({ path, name }) => (
+  <LinkContainer to={path}>
+    <NavItem>{name}</NavItem>
+  </LinkContainer>
+);
+
+const NavbarHeader = ({ path, name }) => (
+  <Navbar.Header>
+    <Navbar.Brand>
+      <a href={path}>{name}</a>
+    </Navbar.Brand>
+    <Navbar.Toggle />
+  </Navbar.Header>
+);
+
 const NavbarLayout = () => {
   return (
     <Navbar>
-      <Navbar.Header>
-        <Navbar.Brand>
-          <a href="/main">E-Payment</a>
-        </Navbar.Brand>
-        <Navbar.Toggle />
-      </Navbar.Header>
+      <NavbarHeader path="/main" name="E-Payment" />
       <Navbar.Collapse>
         <Nav>
-          <LinkContainer to="/bills">
-            <NavItem>Bills</NavItem>
-          </LinkContainer>
+          <NavLinkItem path="/bills" name="Bills" />
         </Nav>
         <Nav pullRight>
-          <LinkContainer to="/">
-            <NavItem>LogOut</NavItem>
-          </LinkContainer>
+          <NavLinkItem path="/" name="LogOut" />
         </Nav>
       </Navbar.Collapse>
     </Navbar>

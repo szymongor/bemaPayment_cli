@@ -12,7 +12,7 @@ const LoginContainer = () => (
   </div>
 );
 
-const DefaultConatiner = () => (
+const DefaultContainer = () => (
   <div>
     <NavbarLayout />
     <Route path="/main" component={Navigation} exact />
@@ -26,7 +26,7 @@ class App extends Component {
       <BrowserRouter>
         <Switch>
           <Route path="/" component={LoginContainer} exact />
-          <Route component={DefaultConatiner} />
+          <Route component={DefaultContainer} />
         </Switch>
       </BrowserRouter>
     );
