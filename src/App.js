@@ -1,19 +1,23 @@
-import React, { Component } from 'react';
-import Login from './components/login/Login';
-import Navigation from './components/navigation/Navigation';
-import BillsTable from './components/bills/bills_table';
-import './App.css';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import React, { Component } from "react";
+import Login from "./components/login/Login";
+import Navigation from "./components/navigation/Navigation";
+import BillsTable from "./components/bills/bills_table";
+import "./App.css";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import NavbarLayout from "./components/navbar/navbar";
 
 class App extends Component {
   render() {
     return (
       <BrowserRouter>
-        <Switch>
-          <Route path="/" component={Login} exact />
-          <Route path="/main" component={Navigation} />
-          <Route path="/bills" component={BillsTable} />
-        </Switch>
+        <div>
+          <NavbarLayout />
+          <Switch>
+            <Route path="/" component={Login} exact />
+            <Route path="/main" component={Navigation} exact />
+            <Route path="/bills" component={BillsTable} exact />
+          </Switch>
+        </div>
       </BrowserRouter>
     );
   }
