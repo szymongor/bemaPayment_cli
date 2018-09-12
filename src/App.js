@@ -6,18 +6,28 @@ import "./App.css";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import NavbarLayout from "./components/navbar/navbar";
 
+const LoginContainer = () => (
+  <div>
+    <Route path="/" component={Login} exact />
+  </div>
+);
+
+const DefaultConatiner = () => (
+  <div>
+    <NavbarLayout />
+    <Route path="/main" component={Navigation} exact />
+    <Route path="/bills" component={BillsTable} exact />
+  </div>
+);
+
 class App extends Component {
   render() {
     return (
       <BrowserRouter>
-        <div>
-          <NavbarLayout />
-          <Switch>
-            <Route path="/" component={Login} exact />
-            <Route path="/main" component={Navigation} exact />
-            <Route path="/bills" component={BillsTable} exact />
-          </Switch>
-        </div>
+        <Switch>
+          <Route path="/" component={LoginContainer} exact />
+          <Route component={DefaultConatiner} />
+        </Switch>
       </BrowserRouter>
     );
   }
