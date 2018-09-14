@@ -4,6 +4,7 @@ import Navigation from './components/navigation/Navigation';
 import BillsTable from './components/bills/bills_table';
 import './App.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Navbars from './components/dashboard/dashboard_navigation';
 
 class App extends Component {
   render() {
@@ -13,6 +14,7 @@ class App extends Component {
           <Route path="/" component={Login} exact />
           <Route path="/main" component={Navigation} />
           <Route path="/bills" component={BillsTable} />
+          <Route path="/dashboard" component={Navbars} />
         </Switch>
       </BrowserRouter>
     );
