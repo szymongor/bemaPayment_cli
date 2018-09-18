@@ -2,7 +2,7 @@
   "name": "epayment_cli",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:8000",
+  "proxy": "http://epaymentbema.pythonanywhere.com",
   "dependencies": {
     "axios": "^0.18.0",
     "react": "^16.4.2",
