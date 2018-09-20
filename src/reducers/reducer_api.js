@@ -1,11 +1,12 @@
-import { API_POST_AUTH } from '../actions/api_actions';
+import { API_POST_AUTH, API_POST_AUTH_ERROR } from "../actions/api_actions";
 
-const INITIAL_STATE = { token: null };
+const INITIAL_STATE = { token: null, isError: false };
 
-export default function(state = INITIAL_STATE, action) {
+function apiAuthReducer(state = INITIAL_STATE, action) {
   switch (action.type) {
+    case API_POST_AUTH_ERROR:
+      return { ...state, isError: true };
     case API_POST_AUTH:
-      //console.log(action.payload.data.token);
       return {
         ...state
         //token: action.payload.data.token
@@ -14,3 +15,5 @@ export default function(state = INITIAL_STATE, action) {
       return state;
   }
 }
+
+export default apiAuthReducer;
