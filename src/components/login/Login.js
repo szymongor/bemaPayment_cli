@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { postAuth } from '../../actions/api_actions';
+import { postAuth } from './actions/api_actions';
 import LoginLayout from './login_layout';
 
 class Login extends Component {

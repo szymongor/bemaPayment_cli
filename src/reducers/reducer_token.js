@@ -1,4 +1,4 @@
-import { API_POST_AUTH } from '../actions/api_actions';
+import { API_POST_AUTH } from '../components/login/actions/api_actions';
 
 const INITIAL_STATE = { token: null };
 
